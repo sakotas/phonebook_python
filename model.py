@@ -1,5 +1,3 @@
-from typing import List, Any
-
 phone_book = []
 start_phone_book = []
 PATH = 'phone_book.txt'
@@ -36,6 +34,7 @@ def add_contact(contact: dict):
     global phone_book
     phone_book.append(contact)
 
+
 def search_contact(search_name: str) -> list[dict]:
     global phone_book
     result_list = []
@@ -44,9 +43,16 @@ def search_contact(search_name: str) -> list[dict]:
             result_list.append(contact)
     return result_list
 
-def edit_contact(search_value: str):
+
+def edit_contact(index_to_delete: int, parameter_to_change: int, new_value: str):
     global phone_book
-    search_contact(search_value)
+    if parameter_to_change == 1:
+        phone_book[index_to_delete]['name'] = new_value
+    if parameter_to_change == 2:
+        phone_book[index_to_delete]['phone'] = new_value
+    if parameter_to_change == 3:
+        phone_book[index_to_delete]['comment'] = new_value
+
 
 def delete_contact(search_name) -> bool:
     global phone_book
@@ -55,6 +61,11 @@ def delete_contact(search_name) -> bool:
             del phone_book[i]
             print(phone_book)
             return True
+
+
+def delete_contact_by_index(list_index: int):
+    global phone_book
+    del phone_book[list_index]
 
 
 def exit_pb() -> bool:

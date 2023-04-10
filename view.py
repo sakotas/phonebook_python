@@ -79,3 +79,7 @@ def ask_change_parameter() -> int:
         return parameter
     else:
         print_info(txt.invalid_parameter)
+
+
+def get_new_value() -> str:
+    return input(txt.new_value)
