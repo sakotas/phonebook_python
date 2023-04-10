@@ -59,7 +59,6 @@ def delete_contact(search_name) -> bool:
     for i in range(len(phone_book)):
         if search_name == phone_book[i]["name"]:
             del phone_book[i]
-            print(phone_book)
             return True
 
 
